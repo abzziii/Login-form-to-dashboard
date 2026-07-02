@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Edit User</h2>
+
+<form [formGroup]="editForm" mat-dialog-content>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Phone Number</mat-label>
+    <input matInput type="number" formControlName="PhoneNumber">
+  </mat-form-field>
+
+
+<mat-form-field appearance="outline" class="full-width">
+  <mat-label>State</mat-label>
+  <mat-select formControlName="State">
+    <mat-option *ngFor="let s of indianStates" [value]="s.name">
+      {{ s.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="Gender">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
+
+<mat-dialog-actions align="end">
+  <button class="demo-button" mat-button (click)="cancel()">Cancel</button>
+  <button class="demo-button" mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

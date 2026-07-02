@@ -1,0 +1,44 @@
+<aside class="sidebar">
+
+  <div class="logo">
+    <span class="logo-icon"> 👤 </span>
+    <span class="logo-text">Abishek</span>
+  </div>
+
+  <div class="section">
+    <p class="section-title">My Dashboard</p>
+    <ul class="menu">
+
+      <li>
+        <a routerLink="/dashboard/home" routerLinkActive="active">
+          <span>🏠</span> Home
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/dashboard/product" routerLinkActive="active">
+          <span>📦</span> Products
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/dashboard/cart" routerLinkActive="active">
+          <span>🧾</span> My Cart
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Second Pages</p>
+    <ul class="menu">
+      <li>
+        <a (click)="logout()" style="cursor:pointer;">
+          <span>🚪</span> Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>

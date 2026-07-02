@@ -1,0 +1,150 @@
+<div class="detail-page" *ngIf="product">
+
+  <!-- Back button -->
+  <div class="back-bar">
+    <button mat-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon> Back to Products
+    </button>
+    <span class="breadcrumb">Products › {{ product.category }} › {{ product.name }}</span>
+  </div>
+
+  <!-- Top section: image + info -->
+  <div class="top-section">
+
+    <!-- Left: image -->
+    <div class="image-section">
+      <div class="main-image">{{ product.image }}</div>
+      <div class="action-links">
+        <button mat-button (click)="toggleWishlist()">
+          <mat-icon>{{ isWishlisted ? 'favorite' : 'favorite_border' }}</mat-icon>
+          {{ isWishlisted ? 'Wishlisted' : 'Add to Wishlist' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Right: product info -->
+    <div class="info-section">
+      <p class="brand-label">{{ product.category | uppercase }}</p>
+      <h1 class="product-name">{{ product.name }}</h1>
+
+      <div class="rating-row">
+        <span class="rating-badge">4.3 ★</span>
+        <span class="rating-count">2,847 ratings &amp; 312 reviews</span>
+      </div>
+
+      <div class="price-row">
+        <span class="price">₹{{ product.price }}</span>
+        <span class="original-price">₹{{ originalPrice }}</span>
+        <span class="discount">{{ discount }}% off</span>
+      </div>
+
+      <p class="delivery-text">🚚 <strong>Free Delivery</strong> by Tomorrow</p>
+
+      <!-- Size selector -->
+      <div class="size-section">
+        <p class="size-label">Select Size</p>
+        <div class="size-row">
+          <button
+            *ngFor="let size of sizes"
+            class="size-btn"
+            [class.selected]="selectedSize === size"
+            (click)="selectSize(size)">
+            {{ size }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Offers -->
+      <div class="offers-box">
+        <p class="offer-title">💰 Available Offers</p>
+        <p class="offer-item">• 10% off on HDFC Bank Credit Card</p>
+        <p class="offer-item">• 5% cashback on Axis Bank Card</p>
+        <p class="offer-item">• Extra ₹200 off on first purchase above ₹2000</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-row">
+        <button mat-raised-button class="cart-btn" (click)="addToCart()">
+          <mat-icon>add_shopping_cart</mat-icon> ADD TO CART
+        </button>
+        <button mat-raised-button class="buy-btn" (click)="buyNow()">
+          <mat-icon>flash_on</mat-icon> BUY NOW
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Product details -->
+  <div class="section-card">
+    <h2 class="section-title">Product Details</h2>
+    <table class="spec-table">
+      <tr><td class="spec-key">Category</td><td class="spec-val">{{ product.category }}</td></tr>
+      <tr><td class="spec-key">Description</td><td class="spec-val">{{ product.description }}</td></tr>
+      <tr><td class="spec-key">Price</td><td class="spec-val">₹{{ product.price }}</td></tr>
+      <tr><td class="spec-key">Availability</td><td class="spec-val" style="color:#388e3c">In Stock</td></tr>
+      <tr><td class="spec-key">Delivery</td><td class="spec-val">Free · 1-2 days</td></tr>
+      <tr><td class="spec-key">Return Policy</td><td class="spec-val">7 days return</td></tr>
+    </table>
+  </div>
+
+  <!-- Reviews -->
+  <div class="section-card">
+    <h2 class="section-title">Ratings &amp; Reviews</h2>
+    <div class="review-summary">
+      <div class="big-rating">
+        <span class="big-num">4.3</span>
+        <span class="stars">★★★★☆</span>
+        <span class="review-count">2,847 ratings</span>
+      </div>
+      <div class="rating-bars">
+        <div class="bar-row"><span>5★</span><div class="bar"><div class="fill" style="width:62%;background:#388e3c"></div></div><span>62%</span></div>
+        <div class="bar-row"><span>4★</span><div class="bar"><div class="fill" style="width:22%;background:#388e3c"></div></div><span>22%</span></div>
+        <div class="bar-row"><span>3★</span><div class="bar"><div class="fill" style="width:9%;background:#ff9f00"></div></div><span>9%</span></div>
+        <div class="bar-row"><span>2★</span><div class="bar"><div class="fill" style="width:3%;background:#e53935"></div></div><span>3%</span></div>
+        <div class="bar-row"><span>1★</span><div class="bar"><div class="fill" style="width:4%;background:#e53935"></div></div><span>4%</span></div>
+      </div>
+    </div>
+    <div class="review-list">
+      <div class="review-card" *ngFor="let rev of reviews">
+        <div class="rev-top">
+          <span class="rev-badge" [style.background]="rev.rating >= 4 ? '#388e3c' : rev.rating === 3 ? '#ff9f00' : '#e53935'">
+            {{ rev.rating }} ★
+          </span>
+          <span class="rev-title">{{ rev.title }}</span>
+        </div>
+        <p class="rev-body">{{ rev.body }}</p>
+        <p class="rev-user">{{ rev.user }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Similar products (same category) -->
+  <div class="section-card" *ngIf="similarProducts.length > 0">
+    <h2 class="section-title">Similar Products in {{ product.category }}</h2>
+    <div class="similar-grid">
+      <div class="sim-card" *ngFor="let p of similarProducts" (click)="goToProduct(p.id)">
+        <div class="sim-img">{{ p.image }}</div>
+        <p class="sim-name">{{ p.name }}</p>
+        <p class="sim-price">₹{{ p.price }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other products (different category) -->
+  <div class="section-card" *ngIf="otherProducts.length > 0">
+    <h2 class="section-title">You May Also Like</h2>
+    <div class="similar-grid">
+      <div class="sim-card" *ngFor="let p of otherProducts" (click)="goToProduct(p.id)">
+        <div class="sim-img">{{ p.image }}</div>
+        <p class="sim-name">{{ p.name }}</p>
+        <p class="sim-price">₹{{ p.price }}</p>
+        <p class="sim-cat">{{ p.category }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" [class.show]="showToast">{{ toastMsg }}</div>

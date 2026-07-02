@@ -1,0 +1,52 @@
+<div class="cart-page">
+
+  <!-- Toolbar -->
+  <mat-toolbar color="primary" class="cart-toolbar">
+    <mat-icon>shopping_cart</mat-icon>
+    <span style="margin-left:8px">My Cart ({{ cartService.cartItems().length }} items)</span>
+    <span class="spacer"></span>
+    <button mat-stroked-button color="warn" *ngIf="cartService.cartItems().length > 0" (click)="clearAll()">
+      <mat-icon>delete_sweep</mat-icon> Clear All
+    </button>
+  </mat-toolbar>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="cartService.cartItems().length === 0">
+    <mat-icon class="empty-icon">remove_shopping_cart</mat-icon>
+    <h3>Your cart is empty!</h3>
+    <p>Go to Products and add items</p>
+  </div>
+
+  <!-- Cart Items -->
+  <div *ngIf="cartService.cartItems().length > 0">
+    <mat-card class="cart-card" *ngFor="let item of cartService.cartItems()">
+      <mat-card-content class="cart-item">
+        <span class="item-emoji">{{ item.image }}</span>
+        <div class="item-details">
+          <h4>{{ item.name }}</h4>
+          <p>{{ item.category }}</p>
+        </div>
+        <span class="item-price">₹{{ item.price }}</span>
+        <button mat-icon-button color="warn" (click)="removeItem(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Total Card -->
+    <mat-card class="total-card">
+      <mat-card-content>
+        <div class="total-row">
+          <span class="total-label">Total Amount</span>
+          <span class="total-amount">₹{{ total }}</span>
+        </div>
+        <mat-divider style="margin: 16px 0"></mat-divider>
+        <button mat-raised-button color="primary" class="checkout-btn">
+          <mat-icon>payment</mat-icon>
+          Proceed to Checkout
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

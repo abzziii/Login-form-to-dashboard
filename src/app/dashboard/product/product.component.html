@@ -1,0 +1,88 @@
+  <mat-toolbar color="primary" class="product-toolbar">
+    <span>🛍️ Products</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="goToCart()" >
+
+      <mat-icon
+        [matBadge]="cartService.cartItems().length"
+        matBadgeColor="warn"
+        [matBadgeHidden]="cartService.cartItems().length === 0">
+        shopping_cart
+      </mat-icon>
+    </button>
+  </mat-toolbar>
+
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <input
+    matInput
+    (keydown)="onSearchEnter($event)"
+    placeholder="Search products..."
+    #input>
+</mat-form-field>
+
+<!-- Category Filter -->
+<div class="chip-list">
+  <button
+    *ngFor="let cat of categories"
+    class="cat-chip"
+    [class.active]="selectedCategory === cat"
+    (click)="selectedCategory = cat">
+    {{ cat }}
+  </button>
+</div>
+
+<!-- Product Grid -->
+<div class="product-grid">
+
+  <!-- Matched products -->
+  <ng-container *ngFor="let product of matchedProducts">
+    <mat-card class="product-card" (click)="openProduct(product.id)" style="cursor:pointer">
+      <mat-card-header>
+        <div class="product-emoji">{{ product.image }}</div>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">₹{{ product.price }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button
+          [color]="isInCart(product) ? 'warn' : 'primary'"
+          (click)="isInCart(product) ? removeFromCart(product) : addToCart(product)">
+          <mat-icon>{{ isInCart(product) ? 'remove_shopping_cart' : 'add_shopping_cart' }}</mat-icon>
+          {{ isInCart(product) ? 'Remove' : 'Add to Cart' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+     <!--- dividerr --->
+  <div class="full-width-divider" *ngIf="searchTerm && otherProducts.length > 0">
+    <span>Other Products</span>
+  </div>
+
+  <!-- Other products -->
+  <ng-container *ngFor="let product of otherProducts">
+    <mat-card class="product-card">
+      <mat-card-header>
+        <div class="product-emoji">{{ product.image }}</div>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">₹{{ product.price }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button
+          [color]="isInCart(product) ? 'warn' : 'primary'"
+          (click)="isInCart(product) ? removeFromCart(product) : addToCart(product)">
+          <mat-icon>{{ isInCart(product) ? 'remove_shopping_cart' : 'add_shopping_cart' }}</mat-icon>
+          {{ isInCart(product) ? 'Remove' : 'Add to Cart' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+
+</div>

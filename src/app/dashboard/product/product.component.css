@@ -1,0 +1,101 @@
+.product-page {
+  padding: 0;
+}
+
+.product-toolbar {
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cat-chip {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 2px solid #3f51b5;
+  background: white;
+  color: #3f51b5;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.cat-chip.active,
+.cat-chip:hover {
+  background: #3f51b5;
+  color: white;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border-radius: 12px !important;
+  transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+}
+
+.product-emoji {
+  font-size: 40px;
+  margin-right: 12px;
+  margin-bottom: 8px;
+}
+
+.description {
+  color: #666;
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3f51b5;
+  margin-top: 8px;
+}
+
+mat-card-actions {
+  padding: 8px 16px 16px !important;
+}
+
+mat-card-actions button {
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+.full-width-divider {
+  width: 100%;
+  grid-column: 1 / -1;
+  text-align: center;
+  border-top: 2.5px dashed #191818;
+  padding: 10px 0;
+  color: #888;
+  font-size: 14px;
+  margin: 10px 0;
+}
