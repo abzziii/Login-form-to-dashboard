@@ -74,3 +74,82 @@ button:hover {
   text-decoration: none;
   font-weight: 500;
 }
+/* ==========================
+   Tablet (991px)
+========================== */
+@media (max-width: 991px) {
+  .login-container {
+    width: 420px;
+    max-width: 90%;
+    margin: 60px auto;
+  }
+}
+
+/* ==========================
+   Mobile (768px)
+========================== */
+@media (max-width: 768px) {
+  .login-container {
+    width: calc(100% - 32px);
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 24px 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .register-text {
+    font-size: 13px;
+  }
+}
+
+/* ==========================
+   Small Mobile (480px)
+========================== */
+@media (max-width: 480px) {
+  .login-container {
+    width: calc(100% - 20px);
+    margin: 20px auto;
+    padding: 20px 16px;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 11px;
+  }
+
+  .register-text {
+    font-size: 12px;
+  }
+
+  small {
+    font-size: 11px;
+  }
+}

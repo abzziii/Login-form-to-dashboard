@@ -74,12 +74,49 @@ table {
 }
 
 
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
 
+.demo-table {
+  min-width: 750px;
+}
 
+@media (max-width: 768px) {
+  .full-width {
+    width: 100%;
+  }
 
+  .paginator-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
 
+  .demo-button {
+    width: 100%;
+  }
 
+  .table-responsive {
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 
+@media (max-width: 480px) {
+  .demo-table {
+    min-width: 700px;
+  }
 
+  .demo-button {
+    font-size: 13px;
+    min-height: 40px;
+  }
 
-
+  ::ng-deep .mat-mdc-paginator-page-size {
+    display: none;
+  }
+}

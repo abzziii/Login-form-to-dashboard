@@ -140,3 +140,131 @@ app-sidebar {
   flex: 1;
   padding: 20px;
 }
+/* ==========================
+   Tablet (991px)
+========================== */
+@media (max-width: 991px) {
+  .sidebar,
+  app-sidebar {
+    width: 220px;
+  }
+
+  .main,
+  .main-content {
+    padding: 18px;
+  }
+
+  .stats-container {
+    flex-wrap: wrap;
+  }
+
+  .stat-btn {
+    flex: 1 1 calc(50% - 10px);
+    width: auto;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================
+   Mobile (768px)
+========================== */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  app-sidebar {
+    width: 100%;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 10px 0;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-shadow: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .sidebar a {
+    display: inline-block;
+    padding: 12px 18px;
+  }
+
+  .main,
+  .main-content {
+    padding: 16px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-btn {
+    width: 100%;
+  }
+
+  .logout-btn {
+    position: static;
+    margin-top: 15px;
+  }
+}
+
+/* ==========================
+   Small Mobile (480px)
+========================== */
+@media (max-width: 480px) {
+  .main,
+  .main-content {
+    padding: 12px;
+  }
+
+  .main h3 {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card h4 {
+    font-size: 15px;
+  }
+
+  .card p {
+    font-size: 22px;
+  }
+
+  .stat-btn {
+    padding: 16px;
+  }
+
+  .stat-btn h4 {
+    font-size: 16px;
+  }
+
+  .stat-btn p {
+    font-size: 22px;
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -268,3 +268,187 @@
   .image-section { width: 100%; }
   .main-image { width: 100%; height: 220px; }
 }
+/* ==========================
+   Tablet (991px)
+========================== */
+@media (max-width: 991px) {
+  .top-section {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .image-section {
+    width: 250px;
+  }
+
+  .main-image {
+    width: 220px;
+    height: 220px;
+    font-size: 100px;
+  }
+
+  .product-name {
+    font-size: 22px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .review-summary {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ==========================
+   Mobile (768px)
+========================== */
+@media (max-width: 768px) {
+  .detail-page {
+    padding: 12px;
+  }
+
+  .top-section {
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .image-section {
+    width: 100%;
+  }
+
+  .main-image {
+    width: 100%;
+    height: 240px;
+    font-size: 90px;
+  }
+
+  .product-name {
+    font-size: 20px;
+  }
+
+  .price-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .original-price,
+  .discount {
+    font-size: 14px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .cart-btn,
+  .buy-btn {
+    width: 100%;
+  }
+
+  .review-summary {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .spec-key,
+  .spec-val {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  .spec-table tr {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .similar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-card {
+    padding: 16px;
+  }
+}
+
+/* ==========================
+   Small Mobile (480px)
+========================== */
+@media (max-width: 480px) {
+  .detail-page {
+    padding: 10px;
+  }
+
+  .back-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .main-image {
+    height: 200px;
+    font-size: 72px;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+
+  .brand-label,
+  .delivery-text,
+  .offer-item {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  .size-row {
+    justify-content: center;
+  }
+
+  .size-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 11px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .big-num {
+    font-size: 36px;
+  }
+
+  .stars {
+    font-size: 18px;
+  }
+
+  .review-card {
+    padding: 10px;
+  }
+
+  .sim-name {
+    font-size: 11px;
+  }
+
+  .sim-price {
+    font-size: 12px;
+  }
+
+  .toast {
+    width: calc(100% - 20px);
+    left: 10px;
+    transform: none;
+    text-align: center;
+  }
+}

@@ -14,3 +14,44 @@
   box-shadow: none;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
+/* ==========================
+   Tablet (991px)
+========================== */
+@media (max-width: 991px) {
+  .full-width {
+    margin-bottom: 10px;
+  }
+
+  .demo-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* ==========================
+   Mobile (768px)
+========================== */
+@media (max-width: 768px) {
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .demo-button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 12px;
+    min-height: 42px;
+  }
+}
+
+/* ==========================
+   Small Mobile (480px)
+========================== */
+@media (max-width: 480px) {
+  .demo-button {
+    font-size: 13px;
+    padding: 10px;
+    min-height: 40px;
+  }
+}
